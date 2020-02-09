@@ -1,6 +1,8 @@
-as86 ./src/boot.s -o ./bin/boot.o
+as86 ./src/bootsector.s -o ./bin/bootsector.o
+ld86 -d ./bin/bootsector.o -o ./bin/bootsector
 
-ld86 -d ./bin/boot.o -o ./bin/boot
+as86 ./src/sector2.s -o ./bin/sector2.o
+ld86 -d ./bin/sector2.o -o ./bin/sector2
 
 cc ./src/write.c -o ./bin/write
 
