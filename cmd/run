@@ -1,0 +1,13 @@
+as86 ./src/boot.s -o ./bin/boot.o
+
+ld86 -d ./bin/boot.o -o ./bin/boot
+
+cc ./src/write.c -o ./bin/write
+
+./bin/write
+
+(killall VirtualBox) || true
+
+clear
+
+VirtualBox --startvm "toyos" &
